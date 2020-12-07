@@ -1,12 +1,29 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState } from 'react';
+import { Button, StyleSheet, View } from 'react-native';
+
+// Import Spinner Component
+import Spinner from './components/Spinner'
 
 export default function App() {
+
+	//	state to manage spinner's visibility
+	const [loading, toggleLoading] = useState(false)
+
+	//	function to handle loading event
+	const handleLoading = () => {
+		toggleLoading(true)
+
+		//	toggles loading after 3 seconds
+		setTimeout(function () {
+			toggleLoading(false)
+		}, 3000)
+	}
+
 	return (
 		<View style={styles.container}>
-			<Text>React Native - Spinner</Text>
-			<StatusBar style="auto" />
+			<Button onPress={handleLoading} title="Start Loading" color="#42A5F5" />
+			{/* Loading Component */}
+			<Spinner loadingState={loading} />
 		</View>
 	);
 }
