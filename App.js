@@ -1,18 +1,15 @@
 import React, { useState } from 'react';
 import { Button, StyleSheet, View } from 'react-native';
-
 // Import Spinner Component
 import Spinner from './components/Spinner'
 
 export default function App() {
-
 	//	state to manage spinner's visibility
 	const [loading, toggleLoading] = useState(false)
-
+	
 	//	function to handle loading event
 	const handleLoading = () => {
 		toggleLoading(true)
-
 		//	toggles loading after 3 seconds
 		setTimeout(function () {
 			toggleLoading(false)
@@ -29,10 +26,7 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		backgroundColor: '#fff',
-		alignItems: 'center',
-		justifyContent: 'center',
-	},
+	container: {flex: 1, backgroundColor: '#fff', alignItems: 'center', 		
+		justifyContent: 'center',},
 });
+
